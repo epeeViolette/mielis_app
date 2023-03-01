@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccueilEleve">
+
+
+    <TextView
+        android:id="@+id/titre_accueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Accueil client"
+        android:textColor="#4CAF50"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="114dp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/PTNomClient"
+        android:layout_width="410dp"
+
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+
+        android:hint="Nom et prénom "
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="#78909C"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titre_accueil"
+        app:layout_constraintVertical_bias="0.015" />
+
+
+    <LinearLayout
+        android:id="@+id/listeNomMiel"
+        android:layout_width="354dp"
+        android:layout_height="383dp"
+        android:layout_marginTop="28dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTNomClient" >
+
+        <EditText
+            android:id="@+id/PTQuantite"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Qte"
+            android:inputType="number"
+            android:minHeight="48dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/BtnSuivant"
+        android:layout_width="145dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="51dp"
+        android:text="Suivant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/BtnFin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listeNomMiel"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/BtnFin"
+        android:layout_width="145dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="51dp"
+        android:text="Fin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/BtnSuivant"
+        app:layout_constraintTop_toBottomOf="@+id/listeNomMiel"
+        tools:ignore="MissingConstraints" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
