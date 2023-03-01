@@ -21,7 +21,7 @@ public class AccueilEleve extends AppCompatActivity {
         DataNomMiel dataNomMiel = DataNomMiel.getInstance();
         dataNomMiel.getInstance();
 
-        for (int i=0;i<4;i++){
+        for (int i=0;i< dataNomMiel.getNbreMiel();i++){
             a = new TextView(this);
             String b = dataNomMiel.getNomMiel(i)+"\n";
             a.setText(b);

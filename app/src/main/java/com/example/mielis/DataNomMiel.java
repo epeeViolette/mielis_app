@@ -9,6 +9,7 @@ import org.json.JSONObject;
     public class DataNomMiel {
 
         private String[] nomMiels ;
+        private int nbreMiels = 0;
         private static DataNomMiel holder = null;
 
         public static DataNomMiel getInstance() {
@@ -30,6 +31,7 @@ import org.json.JSONObject;
             JSONArray resultat = new JSONArray(jsonString);
             Log.i("Dylan MSG", "longueur de resultat ="+resultat.length());
             nomMiels =  new String[resultat.length()];
+            nbreMiels=resultat.length();
             for(int i=0;i<resultat.length();i++){
                 JSONObject aa = resultat.getJSONObject(i);
                 Log.i("Dylan MSG", " un aa = "+aa);
@@ -49,7 +51,14 @@ import org.json.JSONObject;
         }
     }
 
+
     public String getNomMiel(int i){
             return nomMiels[i];
         }
+
+        public int getNbreMiel(){
+            return nbreMiels;
+        }
+
+
 }
