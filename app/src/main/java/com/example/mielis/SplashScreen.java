@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity{
     //Exemple du contenu de virtual host:
     //1er virtual host, pour un accès à partir de l'ordinateur : ServerName : restiloc-ac - Directory : z:/sio2/projets/restiloc/siterestiloc_ac
     //2ème virtual host, pour un accès à partir du smartphone (virtuel ou physique) : ServerName : restiloc-ac:8000 - Directory : z:/sio2/projets/restiloc/siterestiloc_ac
-    private static String URL_nom_miels = "http://192.168.204.1:8181/appli/nom_miels.php";
+    private static String URL_nom_miels = "http://10.58.7.223:8181/appli/nom_miels.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

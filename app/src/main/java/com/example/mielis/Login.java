@@ -32,7 +32,7 @@ public class Login extends AppCompatActivity {
     //Exemple du contenu de virtual host:
     //1er virtual host, pour un accès à partir de l'ordinateur : ServerName : restiloc-ac - Directory : z:/sio2/projets/restiloc/siterestiloc_ac
     //2ème virtual host, pour un accès à partir du smartphone (virtuel ou physique) : ServerName : restiloc-ac:8000 - Directory : z:/sio2/projets/restiloc/siterestiloc_ac
-    private static String URL = "http://192.168.204.1:8181/appli/login.php";
+    private static String URL = "http://10.58.7.223:8181/appli/login.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
