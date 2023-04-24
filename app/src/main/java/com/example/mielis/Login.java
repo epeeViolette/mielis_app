@@ -95,6 +95,8 @@ public class Login extends AppCompatActivity {
                                         //Créer une nouvelle activity dans l'application en utilisant un intent
                                         //un objet Intent permet de passer d'une activity à une autre u sein d'une même application
                                         Intent intent = new Intent(getApplicationContext(), AccueilEleve.class);
+                                        // ajout de na donnée id_eleve dans l'intent
+                                        intent.putExtra("id_eleve",dataEleve.getIdEleve());
                                         //Lancer la nouvelle activity
                                         startActivity(intent);
                                         //Mettre fin à l'activity actuelle

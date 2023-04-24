@@ -21,6 +21,7 @@ import com.vishnusivadas.advanced_httpurlconnection.PutData;
 
 public class AccueilEleve extends AppCompatActivity {
 
+    String id_eleve;
     private EditText nomClient;
     private TextView a;
 
@@ -45,6 +46,15 @@ public class AccueilEleve extends AppCompatActivity {
 
         LinearLayout lin = (LinearLayout) findViewById(R.id.listeNomMiel);
 
+        //Associer les propriétés de la classe aux éléments visuels de l'interface
+
+        nomClient = findViewById(R.id.PTNomClient);
+        BtnFin = findViewById(R.id.BtnFin);
+
+        // affichage de id_eleve récupéré par php et fourni avec l'intent
+        Bundle extras = getIntent().getExtras();
+        id_eleve = extras.getString("id_eleve").trim();
+
 
         DataNomMiel dataNomMiel = DataNomMiel.getInstance();
         dataNomMiel.getInstance();
@@ -61,7 +71,7 @@ public class AccueilEleve extends AppCompatActivity {
             Qte.setHint("0 miel");
             Qte.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_END);
             Qte.setInputType(InputType.TYPE_CLASS_NUMBER);
-            Qte.setId(i+1);
+            Qte.setId(i);
             lin.addView(Qte);
             Log.i("Dylan MSG","i:"+i);
 
@@ -71,9 +81,6 @@ public class AccueilEleve extends AppCompatActivity {
 
 
 
-        //Associer les propriétés de la classe aux éléments visuels de l'interface
-        nomClient = findViewById(R.id.PTNomClient);
-        BtnFin = findViewById(R.id.BtnFin);
 
 
 
@@ -95,20 +102,24 @@ public class AccueilEleve extends AppCompatActivity {
                 //je recupere les id de miel dans un tableau de chaine
                 String[] idMiels = dnm.getIdMiel();
 
-                String[] keys = new String[nbreMiels+1];
-                keys[0] = "NomClient";
-                for(int i=1;i<=nbreMiels;i++){
-                    keys[i] = idMiels[i-1];
+                String[] keys = new String[nbreMiels+2];
+                int i=0;
+                keys[i++] = "id_eleve";
+                keys[i++] = "NomClient";
+                for(int mielId = 0 ;mielId<nbreMiels;mielId++){
+                    keys[mielId + i] = idMiels[mielId];
                 }
 
 
-                String[] values = new String[nbreMiels+1];
+                String[] values = new String[nbreMiels+2];
 
-                values[0] = nomClient.getText().toString().trim();
-                for(int i=1;i<=nbreMiels;i++){
-                    q = findViewById(i);
-                    values[i] = q.getText().toString().trim();
-                    Log.i("Dylan MSG:", keys[i]+"  "+values[i]);
+                i=0;
+                values[i++] = id_eleve;
+                values[i++] = nomClient.getText().toString().trim();
+                for(int mielId = 0 ; mielId<nbreMiels ; mielId++){
+                    q = findViewById(mielId);
+                    values[mielId + i] = q.getText().toString().trim();
+                    Log.i("Dylan MSG:", keys[mielId]+"  "+values[mielId]);
 
                 }
 
@@ -126,6 +137,12 @@ public class AccueilEleve extends AppCompatActivity {
                     if (putData.onComplete()) {
                         String result = putData.getResult();
                         Log.i("Dylan MSG", "completer  "+result);
+
+                        for (int mielId=0;mielId<nbreMiels;mielId++){
+                            q = findViewById(mielId);
+                            q.setText("");
+
+                        }
 
                     }else{Log.i("Dylan MSG", "pas completdylan");}
                 }
